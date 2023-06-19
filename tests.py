@@ -1,4 +1,4 @@
-from main import BooksCollector
+gifrom main import BooksCollector
 
 # класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector
 # обязательно указывать префикс Test
