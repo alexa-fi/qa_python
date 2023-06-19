@@ -1,5 +1,3 @@
-#from qa_python import main
-
 from main import BooksCollector
 
 # класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector
