@@ -1,0 +1,15 @@
+Index: tests.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>from main import BooksCollector\r\n\r\n# класс TestBooksCollector объединяет набор тестов, которыми мы покрываем наше приложение BooksCollector\r\n# обязательно указывать префикс Test\r\nclass TestBooksCollector:\r\n\r\n    # пример теста:\r\n    # обязательно указывать префикс test_\r\n    # дальше идет название метода, который тестируем add_new_book_\r\n    # затем, что тестируем add_two_books - добавление двух книг\r\n    def test_add_new_book_add_two_books(self):\r\n        # создаем экземпляр (объект) класса BooksCollector\r\n        collector = BooksCollector()\r\n\r\n        # добавляем две книги\r\n        collector.add_new_book('Гордость и предубеждение и зомби')\r\n        collector.add_new_book('Что делать, если ваш кот хочет вас убить')\r\n\r\n        # проверяем, что добавилось именно две\r\n        # словарь books_rating, который нам возвращает метод get_books_rating, имеет длину 2\r\n        assert len(collector.get_books_rating()) == 2\r\n\r\n    # напиши свои тесты ниже\r\n    # чтобы тесты были независимыми в каждом из них создавай отдельный экземпляр класса BooksCollector()\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/tests.py b/tests.py
+--- a/tests.py	(revision 3e59c8991dac29ebe3d4d01206dc74bc9319cebe)
++++ b/tests.py	(date 1687331571322)
+@@ -25,3 +25,4 @@
+ 
+ 
+ 
++
