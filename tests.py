@@ -31,10 +31,11 @@ class TestBooksCollector:
         assert len(collector.get_books_rating()) == 1
 
     """Нельзя выставить рейтинг книге, которой нет в списке"""
+
     def test_set_rating_books_from_list_false(self):
         collector = BooksCollector()
         collector.set_book_rating('Как заработать миллион проблем', 6)
-        assert collector.get_books_rating() == {}
+        assert collector.get_book_rating('Как заработать миллион проблем') is None
 
     """Нельзя выставить рейтинг меньше 1"""
     def test_set_rating_less_then_one_false(self):
@@ -60,13 +61,13 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('Атлант расправил плечи')
         collector.add_book_in_favorites('Атлант расправил плечи')
-        assert collector.get_list_of_favorites_books == ['Атлант расправил плечи']
+        assert collector.get_list_of_favorites_books() == ['Атлант расправил плечи']
 
     """Нельзя добавить книгу в избранное, если её нет в словаре books_rating"""
     def test_add_book_in_favorites_which_not_in_dict_false(self):
         collector = BooksCollector()
         collector.add_book_in_favorites('Мастер и Маргарита')
-        assert collector.get_list_of_favorites_books == []
+        assert collector.get_list_of_favorites_books() == []
 
     """ Проверка удаления книги из избранного"""
     def test_delete_book_from_favorites(self):
@@ -74,7 +75,7 @@ class TestBooksCollector:
         collector.add_new_book('Aтлант расправил плечи')
         collector.add_book_in_favorites('Атлант расправил плечи')
         collector.delete_book_from_favorites('Атлант расправил плечи')
-        assert collector.get_list_of_favorites_books == []
+        assert collector.get_list_of_favorites_books() == []
 
     """Вывод списка книг со специфическим рейтингом"""
     def test_get_books_with_specific_rating_true(self):
