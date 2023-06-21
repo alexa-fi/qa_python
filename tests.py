@@ -60,13 +60,13 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('Атлант расправил плечи')
         collector.add_book_in_favorites('Атлант расправил плечи')
-        assert collector.favorites == ['Атлант расправил плечи']
+        assert collector.get_list_of_favorites_books == ['Атлант расправил плечи']
 
     """Нельзя добавить книгу в избранное, если её нет в словаре books_rating"""
     def test_add_book_in_favorites_which_not_in_dict_false(self):
         collector = BooksCollector()
         collector.add_book_in_favorites('Мастер и Маргарита')
-        assert collector.favorites == []
+        assert collector.get_list_of_favorites_books == []
 
     """ Проверка удаления книги из избранного"""
     def test_delete_book_from_favorites(self):
@@ -74,21 +74,15 @@ class TestBooksCollector:
         collector.add_new_book('Aтлант расправил плечи')
         collector.add_book_in_favorites('Атлант расправил плечи')
         collector.delete_book_from_favorites('Атлант расправил плечи')
-        assert collector.favorites == []
+        assert collector.get_list_of_favorites_books == []
 
     """Вывод списка книг со специфическим рейтингом"""
     def test_get_books_with_specific_rating_true(self):
         collector = BooksCollector()
-
         collector.add_new_book('Простоквашино')
-
         collector.set_book_rating('Простоквашино', 9)
-
         collector.add_new_book('Евгений Онегин')
-
         collector.add_new_book('Котенок Шмяк')
-
         collector.set_book_rating('Котенок Шмяк', 10)
-
         assert collector.get_books_with_specific_rating(9) == ['Простоквашино']
 
