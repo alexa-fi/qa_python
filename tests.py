@@ -82,7 +82,6 @@ class TestBooksCollector:
         collector = BooksCollector()
         collector.add_new_book('Простоквашино')
         collector.set_book_rating('Простоквашино', 9)
-        collector.add_new_book('Евгений Онегин')
         collector.add_new_book('Котенок Шмяк')
         collector.set_book_rating('Котенок Шмяк', 10)
         assert collector.get_books_with_specific_rating(9) == ['Простоквашино']
